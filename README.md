@@ -31,6 +31,3 @@
 └── Info/              # data necessary to work
 ```
 
----
-
-*Questions? Open an Issue in this repository or contact the instructor via the course platform.*
