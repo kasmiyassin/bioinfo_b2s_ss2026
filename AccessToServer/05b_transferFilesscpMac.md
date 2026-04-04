@@ -11,7 +11,7 @@ parent: Exporting Files
 ### Step 1:  
 Ensure you are connected to the Internet and locate the username and password given to you by your instructor to access the remote system, then open the terminal application.  If you need further information about any of the aforementioned, please reference the previous tutorial [“How to: remote login from Mac”](logOnToServerMac.md).  
   
-<img src="/AccesstoServer/docs/assets/CISWork34.png" alt="Logged in">
+<img src="/AccessToServer/docs/assets/CISWork34.png" alt="Logged in">
   
   
 ### Step 2:  
@@ -24,17 +24,17 @@ These are also covered in the tutorial [“Introduction to Linux environment”]
   
 To exit the commands manual, simultaneously hold the **(ctrl - c)** keys.  
   
-<img src="/AccesstoServer/docs/assets/CISWork35.png" alt="Commands manual" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork35.png" alt="Commands manual" width="600">  
   
   
 ### Step 3:  
 First, **locate the folder on your (local) computer** where you plan to upload/to from.  In this example, we will be uploading a file from a folder named “txt_files,” which currently exists inside another folder called “demo” on a computer in “Documents.”  
   
-<img src="/AccesstoServer/docs/assets/CISWork36.png" alt="Locate folder" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork36.png" alt="Locate folder" width="600">  
   
 And here is how we could find it using the command-line, we first enter `pwd` to show that we are currently in the home folder. Next, we use `cd Documents/demo/txt_files` to change to the “txt_files” folder, and then `pwd` again to show the updated location. Lastly, we type `ls` to show the contents of the directory that we are currently accessing, which is only the file “info.txt”.  
   
-<img src="/AccesstoServer/docs/assets/CISWork37.png" alt="Locate using the command-line">  
+<img src="/AccessToServer/docs/assets/CISWork37.png" alt="Locate using the command-line">  
   
 So we know the location on the local machine of this folder is:  
   
@@ -46,7 +46,7 @@ Next, unless we want to upload the file(s) to the home directory of the remote m
   
 In this example, there is a folder named “demo” which was created on the account in the remote machine to use for a future tutorial. This folder contains another folder, “text_files” which is where we want to upload to. To demonstrate how we would find this, we are logged on to the storm server via ssh in another window as shown in the following screenshot and used the commands mentioned in the previous step.  
   
-<img src="/AccesstoServer/docs/assets/CISWork38.png" alt="Find location on the remote machine">  
+<img src="/AccessToServer/docs/assets/CISWork38.png" alt="Find location on the remote machine">  
   
 So we know the location on the remote machine of this folder is:  
   
@@ -71,11 +71,11 @@ This is the command we will execute to upload “info.txt” (at the location de
   
 After pressing **enter**, you will be prompted for your password. After entering it, you should see the status of your file(s) being uploaded.  
   
-<img src="/AccesstoServer/docs/assets/CISWork39.png" alt="File upload status">  
+<img src="/AccessToServer/docs/assets/CISWork39.png" alt="File upload status">  
   
 The files should now be in the specified directory of the remote machine. When we type ls from the other tab logged in to the remote machine, you can see that “info.txt” has been uploaded.  
   
-<img src="/AccesstoServer/docs/assets/CISWork40.png" alt="File is uploaded" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork40.png" alt="File is uploaded" width="600">  
   
 You can similarly copy directories with the scp command by adding the -r flag to the command. For example, if we had a directory in the same folder as “info.txt” named “data,” we would execute the following command to copy the directory and its contents:  
   
@@ -86,7 +86,7 @@ You can similarly copy directories with the scp command by adding the -r flag to
 ### Step 7:  
 Next, let’s discuss how to **download a file from the remote machine**.  Basically, this is done by reversing the two locations.  In this example, we will copy a file named “hello.cpp” from the location /home/students/cking74/demo/cpp_files on the remote machine (shown below) to the local machine at Users/courtneyking/Documents/demo/cpp_files  
   
-<img src="/AccesstoServer/docs/assets/CISWork41.png" alt="File located on remote machine" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork41.png" alt="File located on remote machine" width="600">  
   
 We will do this with the following command:  
   
@@ -94,7 +94,7 @@ We will do this with the following command:
    
 You can see the command in example below, which shows that “cpp_files” on the local machine was initially empty with the first **ls** command, that “hello.cpp” appeared after running the **scp** command shown above when we type **ls** again:  
   
-<img src="/AccesstoServer/docs/assets/CISWork42.png" alt="File appears after scp">  
+<img src="/AccessToServer/docs/assets/CISWork42.png" alt="File appears after scp">  
   
 Note that if you attempt to copy a file to a folder where a file with the same name already exists, the file will be overwritten by the one you are copying, so you may want to double check the folder contents before downloading.  
   

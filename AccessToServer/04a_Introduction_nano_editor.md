@@ -13,7 +13,7 @@ Editing files in Linux using Nano is a popular option. Compared to other editors
 
 ## Installing the Nano Text Editor in Linux
 
-Nano is included with many Linux distributions by default. However, some users may need to install Nano on Linux using the [package management](/AccesstoServer/docs/keepme/linux-package-management-overview/) tool of the distribution.
+Nano is included with many Linux distributions by default. However, some users may need to install Nano on Linux using the [package management](/AccessToServer/docs/keepme/linux-package-management-overview/) tool of the distribution.
 
 **Debian/Ubuntu**:
 
@@ -39,7 +39,7 @@ Typing `nano` in the terminal without any arguments opens a blank file for editi
 
 A blank new file in the terminal similar to the following appears:
 
-![new file in the terminal](/AccesstoServer/docs/assets/new-file.png "A new file in the terminal with nano.")
+![new file in the terminal](/AccessToServer/docs/assets/new-file.png "A new file in the terminal with nano.")
 
 You can make changes to the file using the Nano editor. You may exit the file by pressing *Ctrl + X*. It prompts you to save the file and name it before you exit.
 
@@ -49,11 +49,11 @@ Nano only prompts you if actual changes were made to the file. If you didn't mak
 
 When prompted, select press *Y* and then write the name of the file.
 
-![save the file](/AccesstoServer/docs/assets/save-file.png "Entering a file name in nano.")
+![save the file](/AccessToServer/docs/assets/save-file.png "Entering a file name in nano.")
 
 After you enter a filename, press the *Enter* key to save the file. In this guide, the file is saved as a `tutorial.txt` with the following content:
 
-![new content in the file](/AccesstoServer/docs/assets/new-content-file.png "image_tooltip")
+![new content in the file](/AccessToServer/docs/assets/new-content-file.png "image_tooltip")
 
 ### Open an Existing File Using Nano
 
@@ -107,7 +107,7 @@ To open up a list of Nano's commands in Linux, for example, in the `tutorial.txt
 
 Nano help menu appears and displays the following commands:
 
-![nano help menu options](/AccesstoServer/docs/assets/nano-help-menu.png "Nano help menu options.")
+![nano help menu options](/AccessToServer/docs/assets/nano-help-menu.png "Nano help menu options.")
 
 Below is an abbreviated list of commands:
 
@@ -181,15 +181,15 @@ Linode4
 Linode-end
 {{</ file >}}
 
-![updated contents in the file](/AccesstoServer/docs/assets/content-file.png "Opening the sample file in nano.")
+![updated contents in the file](/AccessToServer/docs/assets/content-file.png "Opening the sample file in nano.")
 
 Search for any word that contains **end**. To do so, use *Ctrl+W* and the editor opens an option to search that appears at the bottom of the editor.
 
-![search option in the file](/AccesstoServer/docs/assets/search-file.png "Opening the search functionality of nano.")
+![search option in the file](/AccessToServer/docs/assets/search-file.png "Opening the search functionality of nano.")
 
 Type **end** in the search option and press enter to see the text that contains “end” in it. In this case, the editor highlights Linode-end. If there were multiple words that had **end** in them, move to other search results by using *Alt+W* to see the next match.
 
-![search for the text](/AccesstoServer/docs/assets/search-word.png "Finding the line that contains 'end'.")
+![search for the text](/AccessToServer/docs/assets/search-word.png "Finding the line that contains 'end'.")
 
 **Go to Line Number**
 
@@ -201,15 +201,15 @@ At the search menu, enter *Alt+R*. Type the text to be replaced and press *Enter
 
 Now try that with **end** in the `tutorial.txt` file. The goal is to find **end** in the `tutorial.txt` file and replace it with **launch**. To get started, press *Alt+R* and the following menu appears:
 
-![search the text to replace](/AccesstoServer/docs/assets/search-file.png "Open the search menu in nano.")
+![search the text to replace](/AccessToServer/docs/assets/search-file.png "Open the search menu in nano.")
 
 Next, type the text you want to replace. In this case, it is **end**. And, then press *Enter*.
-![search for the text "end"](/AccesstoServer/docs/assets/search-end.png "Search for the text 'end'")
+![search for the text "end"](/AccessToServer/docs/assets/search-end.png "Search for the text 'end'")
 
 Nano prompts you to enter the replacement text for **end** now. Replace **end** with **launch**, so type it here.
 Nano highlights the text to be replaced and prompts you to confirm. Press *Y* and replace **end** with **launch**.
 
-![confirm to replace the text](/AccesstoServer/docs/assets/confirm-replacement.png "Confirm you wamt to replace the text.")
+![confirm to replace the text](/AccessToServer/docs/assets/confirm-replacement.png "Confirm you wamt to replace the text.")
 
 ### Spell Check Using Nano
 

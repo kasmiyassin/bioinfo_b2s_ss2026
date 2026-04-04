@@ -23,7 +23,7 @@ To **create a file** using vi, you can simply type ”vi” followed by the loca
   
 After executing the command, a blank file will appear on the screen, and you can see the location/file name and “[New]” in the bottom left corner of it as shown below.  This file can be written to, saved or discarded as will be discussed in the following steps.  
     
-<img src="/AccesstoServer/docs/assets/CISWork50.png" alt="File created" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork50.png" alt="File created" width="600"> 
   
 It is also worth noting that if any of the directories mentioned in the location used with the command do not exist, they will additionally be created in the process.  
   
@@ -35,7 +35,7 @@ The insert mode temporarily disables the command mode and allows you to type you
   
 The example below shows some text being added to the file created in the previous step using the insert mode.  
   
-<img src="/AccesstoServer/docs/assets/CISWork51.png" alt="Insert mode" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork51.png" alt="Insert mode" width="600"> 
   
 The visual mode allows you to select, cut, copy and paste.  It is enabled by pressing v.  While active, --VISUAL-- will be displayed at the bottom of the terminal and the following commands can be typed directly into the terminal:  
   
@@ -46,7 +46,7 @@ The visual mode allows you to select, cut, copy and paste.  It is enabled by pre
   
 The example below shows text being highlighted in the visual mode.  
   
-<img src="/AccesstoServer/docs/assets/CISWork52.png" alt="Visual mode" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork52.png" alt="Visual mode" width="600"> 
   
 To exit either of these modes and return to command mode, press **esc**.  We’ll proceed to saving or discarding the changes in the following steps.  
   
@@ -58,11 +58,11 @@ To save a file, press esc, type the following command, then press enter:
   
 In the example shown below, we save the text inserted into “hello.cpp” in the previous step.  You can see the word “written” in the bottom left corner, indicating that it has been saved at the location shown.  
   
-<img src="/AccesstoServer/docs/assets/CISWork53.png" alt="File saved" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork53.png" alt="File saved" width="600"> 
   
 With a quick check, we can confirm that the file now exists in the location specified.  
 
-<img src="/AccesstoServer/docs/assets/CISWork54.png" alt="Check location" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork54.png" alt="Check location" width="600"> 
   
 ### Step 4:  
 To close a file, press esc, type the following command, then press enter:  
@@ -73,7 +73,7 @@ Note that if you edited the file and have unsaved changes on it that you wish to
 
     :q!
   
-<img src="/AccesstoServer/docs/assets/CISWork55.png" alt="Error message" width="600">   
+<img src="/AccessToServer/docs/assets/CISWork55.png" alt="Error message" width="600">   
   
 You can also combine the save and close commands into a single step with:  
 
@@ -87,7 +87,7 @@ To **open an already existing file**, simply type "vi" followed by the location 
   
 The contents of the file will now be displayed in the terminal window and can be scrolled through with the arrow keys.  In this example, we can see that “info.txt” contains a paragraph about vi and its location in the bottom left corner.  Notice that the word [New] is not present, as was when we created a file in Step 1.  
   
-<img src="/AccesstoServer/docs/assets/CISWork56.png" alt="Open existing file" width="600"> 
+<img src="/AccessToServer/docs/assets/CISWork56.png" alt="Open existing file" width="600"> 
   
 When attempting to open a file with vi, be sure to double check that the name of the file and path are correct.  As shown in step 1, vi will attempt to create new files and directories for ones that don’t already exist if requested, which may be confusing at first.  
 
@@ -97,7 +97,7 @@ In the example below, it was intended to open the same file “info.txt” with 
 
 but as you can see, “demo” was accidentally misspelled.  vi attempted to create a new folder named ‘dimo’ when **enter** was hit (shown below).  Since we realized the mistake, we can just closed the file without saving it (as discussed in step 4).  
   
-<img src="/AccesstoServer/docs/assets/CISWork57.png" alt="Accidental file" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork57.png" alt="Accidental file" width="600">  
   
   
 ### Step 6: 
@@ -119,7 +119,7 @@ For more information and usage tips while using vi, you can type the following i
   
 This will display the following document, which can be read and closed by typing `:q` and pressing **enter**.  
   
-<img src="/AccesstoServer/docs/assets/CISWork58.png" alt="vi help" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork58.png" alt="vi help" width="600">  
   
 More information about vi can also be found here: [vi Editor Tutorial](https://www.tutorialspoint.com/unix/unix-vi-editor.htm)  
   

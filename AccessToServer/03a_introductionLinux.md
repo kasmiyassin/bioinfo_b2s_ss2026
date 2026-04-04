@@ -20,7 +20,7 @@ This is a prompt message made up of your account id and the server’s name.  (N
   
 The following screenshot shows the process described above when changing a previous password from “mypass” to a new more appropriate password.  
   
-<img src="/AccesstoServer/docs/assets/CISWork43.png" alt="Change password" width="600">  
+<img src="/AccessToServer/docs/assets/CISWork43.png" alt="Change password" width="600">  
   
 If you’re unsure about how to choose an appropriate password, you can read more here:  
 [Selecting good passwords](https://www.fordham.edu/info/26517/logging_in/10154/selecting_good_passwords)  
