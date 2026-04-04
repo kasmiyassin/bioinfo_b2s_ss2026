@@ -6,3 +6,5 @@ Il comprend les documents suivants :
 - Logiciels requis : Liens et instructions pour l'installation de WinSCP, MobaXterm ou FileZilla.
 
 - Gestion des accès : Procédure d'installation de la clé publique pour une connexion sécurisée sans mot de passe.
+
+The course is adapter according to Prof. Dongli Zhang 
