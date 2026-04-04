@@ -40,6 +40,7 @@ cd                        # Go one level 0
 
 ```
 
+f
 
 Use `cd` to move between directories.
 
