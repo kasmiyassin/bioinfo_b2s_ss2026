@@ -18,6 +18,11 @@
 8. [Quick Reference Cheat Sheet](#8-quick-reference-cheat-sheet)
 
 ---
+## Before start wirte the following command
+
+```bash
+tmux
+```
 
 ## 1. Background: What is the SRA?
 
@@ -133,11 +138,11 @@ SRA stores files on Amazon S3 and ENA (European Nucleotide Archive) servers. SRA
 
 ```bash
 # Download Read 1 and Read 2 of the PhiX run
-wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR13457500/SRR13457500
+wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR37888883/SRR37888883
 
 # Or use the ENA FTP mirror (often faster in Europe):
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/000/SRR13457500/SRR13457500_1.fastq.gz
-wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/000/SRR13457500/SRR13457500_2.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/DR000/SRR37888883/SRR37888883_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/DR000/SRR37888883/SRR37888883_2.fastq.gz
 ```
 
 > 🌍 **Tip for European servers:** The ENA FTP mirror is usually faster than the NCBI servers when you are working from a European institution.
@@ -215,7 +220,7 @@ This opens a configuration menu. Press `X` to exit with default settings — thi
 cd ~/session01/database
 
 # Download PhiX
-prefetch SRR13457500
+ /courses/master_b2s/software/sratoolkit/bin/prefetch SRR37888883
 
 # Download 16S microbiome run
 prefetch SRR2726675
@@ -233,10 +238,10 @@ You will see a progress bar. The `.sra` files are saved in `~/ncbi/public/sra/` 
 
 ```bash
 # Convert PhiX
-fasterq-dump SRR13457500 --outdir ~/session02/data/ --split-files
+ /courses/master_b2s/software/sratoolkit/bin/fasterq-dump SRR37888883 --outdir ~/session01/data/ --split-files
 
 # Convert 16S microbiome
-fasterq-dump SRR2726675 --outdir ~/session02/data/ --split-files
+fasterq-dump SRR2726675 --outdir ~/session02/database/ --split-files
 
 ```
 
