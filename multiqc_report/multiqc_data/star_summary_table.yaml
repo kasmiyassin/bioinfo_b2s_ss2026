@@ -1,0 +1,144 @@
+SRR3192396_1:
+  AT/AC splices: 0.041871
+  Aligned: 97.21000000000001
+  Annotated splices: 40.114995
+  Avg. mapped len: 195.57
+  Avg. read len: 196.0
+  Del len: 1.56
+  Del rate: 0.02
+  GC/AG splices: 0.336796
+  GT/AG splices: 40.194421
+  Ins len: 1.61
+  Ins rate: 0.01
+  Mismatch rate: 0.25
+  Multimapped: 3.6598219999999997
+  Non-canonical splices: 0.14125
+  Splices: 40.714338
+  Total reads: 104.413184
+  Uniq aligned: 93.7
+SRR3192397_1:
+  AT/AC splices: 0.03916
+  Aligned: 98.10000000000001
+  Annotated splices: 35.270329
+  Avg. mapped len: 196.47
+  Avg. read len: 196.0
+  Del len: 1.56
+  Del rate: 0.02
+  GC/AG splices: 0.305371
+  GT/AG splices: 35.325123
+  Ins len: 1.49
+  Ins rate: 0.01
+  Mismatch rate: 0.21
+  Multimapped: 3.124558
+  Non-canonical splices: 0.134136
+  Splices: 35.80379
+  Total reads: 91.969895
+  Uniq aligned: 94.7
+SRR3192398_1:
+  AT/AC splices: 0.023119999999999998
+  Aligned: 95.92
+  Annotated splices: 24.432647
+  Avg. mapped len: 193.82
+  Avg. read len: 194.0
+  Del len: 1.5
+  Del rate: 0.01
+  GC/AG splices: 0.18346099999999999
+  GT/AG splices: 24.44175
+  Ins len: 1.55
+  Ins rate: 0.01
+  Mismatch rate: 0.23
+  Multimapped: 5.170027999999999
+  Non-canonical splices: 0.07296899999999999
+  Splices: 24.7213
+  Total reads: 66.565696
+  Uniq aligned: 88.15
+SRR3192399_1:
+  AT/AC splices: 0.027811
+  Aligned: 96.32000000000001
+  Annotated splices: 29.139585999999998
+  Avg. mapped len: 193.89
+  Avg. read len: 194.0
+  Del len: 1.45
+  Del rate: 0.01
+  GC/AG splices: 0.21767999999999998
+  GT/AG splices: 29.142619
+  Ins len: 1.52
+  Ins rate: 0.01
+  Mismatch rate: 0.21
+  Multimapped: 6.03927
+  Non-canonical splices: 0.083186
+  Splices: 29.471296
+  Total reads: 74.33451699999999
+  Uniq aligned: 88.2
+SRR3192400_1:
+  AT/AC splices: 0.03199
+  Aligned: 83.10000000000001
+  Annotated splices: 52.360485
+  Avg. mapped len: 187.76
+  Avg. read len: 188.0
+  Del len: 1.59
+  Del rate: 0.01
+  GC/AG splices: 0.356334
+  GT/AG splices: 52.445037
+  Ins len: 1.55
+  Ins rate: 0.01
+  Mismatch rate: 0.32
+  Multimapped: 5.519843
+  Non-canonical splices: 0.36209199999999997
+  Splices: 53.195453
+  Total reads: 94.925479
+  Uniq aligned: 77.29
+SRR3192401_1:
+  AT/AC splices: 0.032302
+  Aligned: 82.22000000000001
+  Annotated splices: 53.255851
+  Avg. mapped len: 187.5
+  Avg. read len: 188.0
+  Del len: 1.59
+  Del rate: 0.01
+  GC/AG splices: 0.36203799999999997
+  GT/AG splices: 53.33065
+  Ins len: 1.54
+  Ins rate: 0.01
+  Mismatch rate: 0.31
+  Multimapped: 5.513851
+  Non-canonical splices: 0.37789999999999996
+  Splices: 54.102889999999995
+  Total reads: 95.236637
+  Uniq aligned: 76.43
+SRR3192657_1:
+  AT/AC splices: 0.062651
+  Aligned: 94.11999999999999
+  Annotated splices: 58.053182
+  Avg. mapped len: 196.51
+  Avg. read len: 197.0
+  Del len: 1.75
+  Del rate: 0.01
+  GC/AG splices: 0.397045
+  GT/AG splices: 58.152586
+  Ins len: 1.71
+  Ins rate: 0.01
+  Mismatch rate: 0.27
+  Multimapped: 2.70958
+  Non-canonical splices: 0.124346
+  Splices: 58.736627999999996
+  Total reads: 93.144645
+  Uniq aligned: 91.21
+SRR3192658_1:
+  AT/AC splices: 0.06319999999999999
+  Aligned: 92.53
+  Annotated splices: 57.513306
+  Avg. mapped len: 195.63
+  Avg. read len: 196.0
+  Del len: 1.76
+  Del rate: 0.01
+  GC/AG splices: 0.38307199999999997
+  GT/AG splices: 57.610842
+  Ins len: 1.74
+  Ins rate: 0.01
+  Mismatch rate: 0.35
+  Multimapped: 2.7122509999999997
+  Non-canonical splices: 0.133582
+  Splices: 58.190695999999996
+  Total reads: 97.071168
+  Uniq aligned: 89.74

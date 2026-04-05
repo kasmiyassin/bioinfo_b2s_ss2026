@@ -1,0 +1,8 @@
+MultiQC:
+- 10.1093/bioinformatics/btw354
+cutadapt:
+- 10.14806/ej.17.1.200
+featurecounts:
+- 10.1093/bioinformatics/btt656
+star:
+- 10.1093/bioinformatics/bts635

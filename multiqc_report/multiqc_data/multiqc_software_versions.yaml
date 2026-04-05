@@ -1,0 +1,9 @@
+Cutadapt:
+  Cutadapt:
+  - 1.9.1
+'FastQC: raw':
+  'FastQC: raw':
+  - 0.11.2
+'FastQC: trimmed':
+  'FastQC: trimmed':
+  - 0.11.2

@@ -1,0 +1,352 @@
+SRR3192396_1:
+  '%GC': 50.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192396_1.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 105089150.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: fail
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 26.378575022943284
+SRR3192396_2:
+  '%GC': 51.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192396_2.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 105089150.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: fail
+  per_base_n_content: pass
+  per_base_sequence_content: warn
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: fail
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 20.4473711873191
+SRR3192397_1:
+  '%GC': 48.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192397_1.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 92494632.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: fail
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 27.16089822834829
+SRR3192397_2:
+  '%GC': 49.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192397_2.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 92494632.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: fail
+  per_base_n_content: pass
+  per_base_sequence_content: warn
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: fail
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 22.229508644640912
+SRR3192398_1:
+  '%GC': 47.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192398_1.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 68765938.0
+  adapter_content: pass
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: fail
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 40.16946537308429
+SRR3192398_2:
+  '%GC': 47.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192398_2.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 68765938.0
+  adapter_content: pass
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 45.020943865745025
+SRR3192399_1:
+  '%GC': 47.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192399_1.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 76795926.0
+  adapter_content: pass
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: fail
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: fail
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 38.88921652665939
+SRR3192399_2:
+  '%GC': 47.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192399_2.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 76795926.0
+  adapter_content: pass
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 42.93535458782176
+SRR3192400_1:
+  '%GC': 45.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192400_1.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 95791942.0
+  adapter_content: warn
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 22.742925715532834
+SRR3192400_2:
+  '%GC': 45.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192400_2.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 95791942.0
+  adapter_content: warn
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 25.144075299753364
+SRR3192401_1:
+  '%GC': 45.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192401_1.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 95735344.0
+  adapter_content: warn
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 22.17648021405257
+SRR3192401_2:
+  '%GC': 45.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192401_2.fastq.gz
+  Sequence length: 100.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 95735344.0
+  adapter_content: warn
+  avg_sequence_length: 100.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 100
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: warn
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 22.29705443988152
+SRR3192657_1:
+  '%GC': 50.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192657_1.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 93555584.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: pass
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 18.618170779564977
+SRR3192657_2:
+  '%GC': 51.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192657_2.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 93555584.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: pass
+  per_base_n_content: pass
+  per_base_sequence_content: warn
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 17.04989628748122
+SRR3192658_1:
+  '%GC': 52.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192658_1.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 97548052.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: fail
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 18.73489125447811
+SRR3192658_2:
+  '%GC': 53.0
+  Encoding: Sanger / Illumina 1.9
+  File type: Conventional base calls
+  Filename: SRR3192658_2.fastq.gz
+  Sequence length: 101.0
+  Sequences flagged as poor quality: 0.0
+  Total Sequences: 97548052.0
+  adapter_content: pass
+  avg_sequence_length: 101.0
+  basic_statistics: pass
+  kmer_content: fail
+  median_sequence_length: 101
+  overrepresented_sequences: warn
+  per_base_n_content: pass
+  per_base_sequence_content: warn
+  per_base_sequence_quality: pass
+  per_sequence_gc_content: pass
+  per_sequence_quality_scores: pass
+  sequence_duplication_levels: fail
+  sequence_length_distribution: pass
+  total_deduplicated_percentage: 16.973141296746608

@@ -1,0 +1,194 @@
+[2025-12-09 21:07:36,365] root                                               [DEBUG  ]  Logging to file: /var/folders/px/z57y5_jd2rx3b3js6s9629dh0000gn/T/tmp52sa1y6m/multiqc.log
+[2025-12-09 21:07:36,605] multiqc.core.update_config                         [DEBUG  ]  This is MultiQC v1.33
+[2025-12-09 21:07:36,605] multiqc.core.update_config                         [DEBUG  ]  Running Python 3.12.2 | packaged by conda-forge | (main, Feb 16 2024, 20:54:21) [Clang 16.0.6 ]
+[2025-12-09 21:07:36,777] multiqc.config                                     [INFO   ]  Loading config settings from: /Users/ewels/.multiqc_config.yml
+[2025-12-09 21:07:36,777] multiqc.config                                     [DEBUG  ]  New config: {'data_format': 'yaml', 'disable_ngi': True, 'template': 'default'}
+[2025-12-09 21:07:36,879] multiqc.config                                     [INFO   ]  Loading config settings from: multiqc_config.yaml
+[2025-12-09 21:07:36,879] multiqc.config                                     [DEBUG  ]  New config: {'table_sample_merge': {'R1': '_1', 'R2': '_2'}, 'module_order': ['cutadapt', {'fastqc': {'name': 'FastQC: trimmed', 'anchor': 'fqc_trimmed', 'path_filters': ['*_val*']}}, {'fastqc': {'name': 'FastQC: raw', 'anchor': 'fqc_raw', 'path_filters_exclude': ['*_val*'], 'generalstats': False}}]}
+[2025-12-09 21:07:36,880] multiqc                                            [DEBUG  ]  Running MultiQC Xenium Extra Plugin v1.0.1
+[2025-12-09 21:07:36,880] multiqc                                            [DEBUG  ]  Increasing log_filesize_limit to 5GB for Xenium parquet files
+[2025-12-09 21:07:36,885] urllib3.connectionpool                             [DEBUG  ]  Starting new HTTPS connection (1): api.multiqc.info:443
+[2025-12-09 21:07:36,999] urllib3.connectionpool                             [DEBUG  ]  https://api.multiqc.info:443 "GET /version?version_multiqc=1.33&version_python=3.12.2&operating_system=Darwin&is_docker=False&is_singularity=False&is_conda=True&is_uv=False&is_ci=False&is_notebook=False&ai_summary=True&ai_summary_full=False&ai_provider=seqera HTTP/1.1" 200 178
+[2025-12-09 21:07:37,000] multiqc.core.version_check                         [DEBUG  ]  Latest MultiQC version is v1.33, released 2025-12-09
+[2025-12-09 21:07:37,000] multiqc.multiqc                                    [DEBUG  ]  Working dir : /Users/ewels/GitHub/seqera/web/services/website/public/examples/rna-seq
+[2025-12-09 21:07:37,000] multiqc.multiqc                                    [DEBUG  ]  Template    : default
+[2025-12-09 21:07:37,001] multiqc.multiqc                                    [DEBUG  ]  Command used: /Users/ewels/.miniconda3/miniconda3/envs/py3.12/bin/multiqc . --ai
+[2025-12-09 21:07:37,001] multiqc.core.file_search                           [INFO   ]  Search path: /Users/ewels/GitHub/seqera/web/services/website/public/examples/rna-seq
+[2025-12-09 21:07:37,002] multiqc.core.file_search                           [DEBUG  ]  Analysing modules: adapterremoval, afterqc, anglerfish, ataqv, bakta, bamdst, bamtools, bases2fastq, bbduk, bbmap, bcftools, bcl2fastq, bclconvert, biobambam2, biobloomtools, biscuit, bismark, bowtie1, bowtie2, busco, bustools, ccs, cellranger, cellranger_arc, cells2stats, checkm, checkm2, checkqc, clipandmerge, clusterflow, conpair, custom_content, damageprofiler, dedup, deeptools, diamond, disambiguate, dragen, dragen_fastqc, eigenstratdatabasetools, fastp, fastq_screen, featurecounts, fgbio, filtlong, flash, flexbar, freyja, ganon, gatk, gffcompare, glimpse, goleft_indexcov, gopeaks, gtdbtk, haplocheck, happy, hicexplorer, hicpro, hicup, hifiasm, hisat2, homer, hops, hostile, htseq, humid, interop, isoseq, ivar, jcvi, jellyfish, kaiju, kallisto, kat, kraken, leehom, librarian, lima, longranger, macs2, malt, mapdamage, megahit, metaphlan, methylqa, mgikit, minionqc, mirtop, mirtrace, mosaicatcher, mosdepth, motus, mtnucratio, multivcfanalyzer, nanoq, nanostat, nextclade, ngsbits, ngsderive, nonpareil, odgi, optitype, pairtools, pangolin, pbmarkdup, peddy, percolator, phantompeakqualtools, picard, porechop, preseq, prinseqplusplus, prokka, purple, pychopper, pycoqc, qc3C, qorts, qualimap, quast, ribotish, rna_seqc, rockhopper, rsem, rseqc, salmon, sambamba, samblaster, samtools, sargasso, seqera_cli, seqfu, seqkit, sequali, seqwho, seqyclean, sexdeterrmine, sickle, skewer, slamdunk, snippy, snpeff, snpsplit, somalier, sompy, sortmerna, sourmash, spaceranger, stacks, star, supernova, sylphtax, telseq, theta2, tophat, trimmomatic, truvari, umicollapse, umitools, varscan2, vcftools, vep, verifybamid, vg, whatshap, xengsort, xenium, xenome, cutadapt, fastqc, fastqc, software_versions
+[2025-12-09 21:07:37,002] multiqc.core.file_search                           [DEBUG  ]  Search keys: adapterremoval, afterqc, anglerfish, ataqv, bakta, bamdst, bamtools, bases2fastq, bbduk, bbmap, bcftools, bcl2fastq, bclconvert, biobambam2, biobloomtools, biscuit, bismark, bowtie1, bowtie2, busco, bustools, ccs, cellranger, cellranger_arc, cells2stats, checkm, checkm2, checkqc, clipandmerge, clusterflow, conpair, custom_content, cutadapt, damageprofiler, dedup, deeptools, diamond, disambiguate, dragen, dragen_fastqc, eigenstratdatabasetools, fastp, fastq_screen, fastqc, fastqc, featurecounts, fgbio, filtlong, flash, flexbar, freyja, ganon, gatk, gffcompare, glimpse, goleft_indexcov, gopeaks, gtdbtk, haplocheck, happy, hicexplorer, hicpro, hicup, hifiasm, hisat2, homer, hops, hostile, htseq, humid, interop, isoseq, ivar, jcvi, jellyfish, kaiju, kallisto, kat, kraken, leehom, librarian, lima, longranger, macs2, malt, mapdamage, megahit, metaphlan, methylqa, mgikit, minionqc, mirtop, mirtrace, mosaicatcher, mosdepth, motus, mtnucratio, multiqc_data, multivcfanalyzer, nanoq, nanostat, nextclade, ngsbits, ngsderive, nonpareil, odgi, optitype, pairtools, pangolin, pbmarkdup, peddy, percolator, phantompeakqualtools, picard, porechop, preseq, prinseqplusplus, prokka, purple, pychopper, pycoqc, qc3C, qorts, qualimap, quast, ribotish, rna_seqc, rockhopper, rsem, rseqc, salmon, sambamba, samblaster, samtools, sargasso, seqera_cli, seqfu, seqkit, sequali, seqwho, seqyclean, sexdeterrmine, sickle, skewer, slamdunk, snippy, snpeff, snpsplit, software_versions, somalier, sompy, sortmerna, sourmash, spaceranger, stacks, star, supernova, sylphtax, telseq, theta2, tophat, trimmomatic, truvari, umicollapse, umitools, varscan2, vcftools, vep, verifybamid, vg, whatshap, xengsort, xenium, xenome
+[2025-12-09 21:07:37,307] multiqc.report                                     [DEBUG  ]  Summary of files that were skipped by the search: |skipped_module_specific_max_filesize: 65|, |skipped_no_match: 58|
+[2025-12-09 21:07:37,312] multiqc.core.exec_modules                          [DEBUG  ]  Running module: custom_content
+[2025-12-09 21:07:37,315] multiqc.core.exec_modules                          [DEBUG  ]  No samples found: custom_content
+[2025-12-09 21:07:37,315] multiqc.core.exec_modules                          [DEBUG  ]  Running module: featurecounts
+[2025-12-09 21:07:37,322] multiqc.modules.featurecounts.featurecounts        [INFO   ]  Found 8 reports
+[2025-12-09 21:07:37,323] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_featurecounts.yaml
+[2025-12-09 21:07:37,324] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_featurecounts.json
+[2025-12-09 21:07:37,358] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for featureCounts_assignment_plot: found old_data = False
+[2025-12-09 21:07:37,358] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for featureCounts_assignment_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,397] multiqc.core.exec_modules                          [DEBUG  ]  Running module: star
+[2025-12-09 21:07:37,404] multiqc.modules.star.star                          [INFO   ]  Found 8 reports
+[2025-12-09 21:07:37,406] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_star.yaml
+[2025-12-09 21:07:37,407] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_star.json
+[2025-12-09 21:07:37,412] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for star_summary_table: found old_data = False
+[2025-12-09 21:07:37,412] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for star_summary_table: no old data or empty, using new data only
+[2025-12-09 21:07:37,425] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for star_alignment_plot: found old_data = False
+[2025-12-09 21:07:37,425] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for star_alignment_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,430] multiqc.core.exec_modules                          [DEBUG  ]  Running module: cutadapt
+[2025-12-09 21:07:37,459] multiqc.modules.cutadapt.cutadapt                  [INFO   ]  Found 16 reports
+[2025-12-09 21:07:37,461] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_cutadapt.yaml
+[2025-12-09 21:07:37,461] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_cutadapt.json
+[2025-12-09 21:07:37,462] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for cutadapt_filtered_reads_plot: found old_data = False
+[2025-12-09 21:07:37,462] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for cutadapt_filtered_reads_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,470] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for cutadapt_trimmed_sequences_plot_3: found old_data = False
+[2025-12-09 21:07:37,471] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for cutadapt_trimmed_sequences_plot_3: no old data or empty, using new data only
+[2025-12-09 21:07:37,480] multiqc.base_module                                [DEBUG  ]  cutadapt: deleting attribute self.cutadapt_data
+[2025-12-09 21:07:37,480] multiqc.base_module                                [DEBUG  ]  cutadapt: deleting attribute self.cutadapt_length_counts
+[2025-12-09 21:07:37,480] multiqc.base_module                                [DEBUG  ]  cutadapt: deleting attribute self.cutadapt_length_exp
+[2025-12-09 21:07:37,480] multiqc.base_module                                [DEBUG  ]  cutadapt: deleting attribute self.cutadapt_length_obsexp
+[2025-12-09 21:07:37,480] multiqc.core.exec_modules                          [DEBUG  ]  Running module: fastqc
+[2025-12-09 21:07:37,484] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192396_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,484] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192396_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,486] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192396_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,486] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192396_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,487] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192397_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,487] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192397_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,488] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192397_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,488] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192397_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,489] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192398_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,489] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192398_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,490] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192398_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,490] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192398_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,491] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192399_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,491] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192399_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,492] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192399_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,492] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192399_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,494] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192400_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,494] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192400_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,495] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192400_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,495] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192400_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,497] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192401_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,497] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192401_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,498] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192401_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,498] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192401_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,499] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192657_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,499] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192657_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,500] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192657_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,501] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192657_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,502] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192658_1_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,502] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192658_1_val_1_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,503] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192658_2_fastqc.zip' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,503] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Selecting 'data/SRR3192658_2_val_2_fastqc.zip' as it matched the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,504] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 16 reports
+[2025-12-09 21:07:37,506] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_sequence_counts_plot: found old_data = False
+[2025-12-09 21:07:37,506] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_sequence_counts_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,515] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_base_sequence_quality_plot: found old_data = False
+[2025-12-09 21:07:37,515] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_base_sequence_quality_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,529] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_sequence_quality_scores_plot: found old_data = False
+[2025-12-09 21:07:37,529] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_sequence_quality_scores_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,540] multiqc.base_module                                [DEBUG  ]  fastqc/theoretical_gc - Skipping 'data/fastqc_theoretical_gc_hg38_txome.txt' as it didn't match the path_filters for 'FastQC: trimmed'
+[2025-12-09 21:07:37,544] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_sequence_gc_content_plot: found old_data = False
+[2025-12-09 21:07:37,544] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_sequence_gc_content_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,559] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_base_n_content_plot: found old_data = False
+[2025-12-09 21:07:37,559] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_per_base_n_content_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,568] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fastqc_sequence_length_distribution_plot: found old_data = False
+[2025-12-09 21:07:37,568] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fastqc_sequence_length_distribution_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,574] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_sequence_duplication_levels_plot: found old_data = False
+[2025-12-09 21:07:37,574] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_sequence_duplication_levels_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,578] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_overrepresented_sequences_plot: found old_data = False
+[2025-12-09 21:07:37,578] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_overrepresented_sequences_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,584] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_top_overrepresented_sequences_table: found old_data = False
+[2025-12-09 21:07:37,584] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed_top_overrepresented_sequences_table: no old data or empty, using new data only
+[2025-12-09 21:07:37,592] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed-status-check-heatmap: found old_data = False
+[2025-12-09 21:07:37,592] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_trimmed-status-check-heatmap: no old data or empty, using new data only
+[2025-12-09 21:07:37,603] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_fastqc_fqc_trimmed.yaml
+[2025-12-09 21:07:37,604] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_fastqc_fqc_trimmed.json
+[2025-12-09 21:07:37,604] multiqc.base_module                                [DEBUG  ]  fqc_trimmed: deleting attribute self.order_of_duplication_levels
+[2025-12-09 21:07:37,604] multiqc.base_module                                [DEBUG  ]  fqc_trimmed: deleting attribute self.status_colours
+[2025-12-09 21:07:37,604] multiqc.core.exec_modules                          [DEBUG  ]  Running module: fastqc
+[2025-12-09 21:07:37,608] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192396_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,609] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192396_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,610] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192397_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,611] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192397_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,612] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192398_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,613] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192398_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,614] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192399_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,615] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192399_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,616] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192400_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,617] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192400_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,618] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192401_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,619] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192401_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,620] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192657_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,621] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192657_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,622] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192658_1_val_1_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,623] multiqc.base_module                                [DEBUG  ]  fastqc/zip - Skipping 'data/SRR3192658_2_val_2_fastqc.zip' as it matched the path_filters_exclude for 'FastQC: raw'
+[2025-12-09 21:07:37,623] multiqc.modules.fastqc.fastqc                      [INFO   ]  Found 16 reports
+[2025-12-09 21:07:37,623] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_sequence_counts_plot: found old_data = False
+[2025-12-09 21:07:37,623] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_sequence_counts_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,630] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_base_sequence_quality_plot: found old_data = False
+[2025-12-09 21:07:37,630] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_base_sequence_quality_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,638] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_sequence_quality_scores_plot: found old_data = False
+[2025-12-09 21:07:37,638] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_sequence_quality_scores_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,652] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_sequence_gc_content_plot: found old_data = False
+[2025-12-09 21:07:37,652] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_sequence_gc_content_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,670] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_base_n_content_plot: found old_data = False
+[2025-12-09 21:07:37,670] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_per_base_n_content_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,678] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_sequence_duplication_levels_plot: found old_data = False
+[2025-12-09 21:07:37,678] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_sequence_duplication_levels_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,683] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_overrepresented_sequences_plot: found old_data = False
+[2025-12-09 21:07:37,683] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_overrepresented_sequences_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,689] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_top_overrepresented_sequences_table: found old_data = False
+[2025-12-09 21:07:37,689] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_top_overrepresented_sequences_table: no old data or empty, using new data only
+[2025-12-09 21:07:37,697] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_adapter_content_plot: found old_data = False
+[2025-12-09 21:07:37,697] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw_adapter_content_plot: no old data or empty, using new data only
+[2025-12-09 21:07:37,703] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw-status-check-heatmap: found old_data = False
+[2025-12-09 21:07:37,703] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for fqc_raw-status-check-heatmap: no old data or empty, using new data only
+[2025-12-09 21:07:37,711] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_fastqc_fqc_raw.yaml
+[2025-12-09 21:07:37,712] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_fastqc_fqc_raw.json
+[2025-12-09 21:07:37,712] multiqc.base_module                                [DEBUG  ]  fqc_raw: deleting attribute self.order_of_duplication_levels
+[2025-12-09 21:07:37,712] multiqc.base_module                                [DEBUG  ]  fqc_raw: deleting attribute self.status_colours
+[2025-12-09 21:07:37,712] multiqc.core.software_versions                     [DEBUG  ]  Reading software versions from config.software_versions
+[2025-12-09 21:07:37,715] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_software_versions.yaml
+[2025-12-09 21:07:37,715] multiqc.core.write_results                         [DEBUG  ]  Rendering plots
+[2025-12-09 21:07:37,756] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for general_stats_table: found old_data = False
+[2025-12-09 21:07:37,756] multiqc.plots.plot                                 [DEBUG  ]  merge_with_previous for general_stats_table: no old data or empty, using new data only
+[2025-12-09 21:07:37,772] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_general_stats.yaml
+[2025-12-09 21:07:37,773] multiqc.report                                     [DEBUG  ]  Wrote data file multiqc_general_stats.json
+[2025-12-09 21:07:37,774] multiqc.core.ai                                    [DEBUG  ]  Using Seqera access token from $SEQERA_ACCESS_TOKEN environment variable
+[2025-12-09 21:07:38,874] multiqc.core.ai                                    [DEBUG  ]  Including only General Statistics table to fit within Seqera AI's context window (200000 tokens). Tokens estimate: 1820, with sections: 200153
+[2025-12-09 21:07:38,874] multiqc.core.ai                                    [DEBUG  ]  Saved AI prompt to multiqc_data/llms-full.txt
+[2025-12-09 21:07:38,876] urllib3.connectionpool                             [DEBUG  ]  Starting new HTTP connection (1): 0.0.0.0:8002
+[2025-12-09 21:07:45,030] urllib3.connectionpool                             [DEBUG  ]  http://0.0.0.0:8002 "POST /internal-ai/query HTTP/1.1" 200 693
+[2025-12-09 21:07:45,044] multiqc.core.ai                                    [INFO   ]  Summarised report with Seqera AI
+[2025-12-09 21:07:45,044] multiqc.core.write_results                         [DEBUG  ]  Exporting plot data to files
+[2025-12-09 21:07:45,046] multiqc.report                                     [DEBUG  ]  Wrote data file featureCounts_assignment_plot.yaml
+[2025-12-09 21:07:45,047] multiqc.report                                     [DEBUG  ]  Wrote data file star_summary_table.yaml
+[2025-12-09 21:07:45,047] multiqc.report                                     [DEBUG  ]  Wrote data file star_alignment_plot.yaml
+[2025-12-09 21:07:45,047] multiqc.report                                     [DEBUG  ]  Wrote data file cutadapt_filtered_reads_plot.yaml
+[2025-12-09 21:07:45,067] multiqc.report                                     [DEBUG  ]  Wrote data file cutadapt_trimmed_sequences_plot_3_Counts.yaml
+[2025-12-09 21:07:45,085] multiqc.report                                     [DEBUG  ]  Wrote data file cutadapt_trimmed_sequences_plot_3_Obs_Exp.yaml
+[2025-12-09 21:07:45,086] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_sequence_counts_plot.yaml
+[2025-12-09 21:07:45,096] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_per_base_sequence_quality_plot.yaml
+[2025-12-09 21:07:45,101] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_per_sequence_quality_scores_plot.yaml
+[2025-12-09 21:07:45,119] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_per_sequence_gc_content_plot_Percentages.yaml
+[2025-12-09 21:07:45,137] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_per_sequence_gc_content_plot_Counts.yaml
+[2025-12-09 21:07:45,148] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_per_base_n_content_plot.yaml
+[2025-12-09 21:07:45,156] multiqc.report                                     [DEBUG  ]  Wrote data file fastqc_sequence_length_distribution_plot.yaml
+[2025-12-09 21:07:45,159] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_sequence_duplication_levels_plot.yaml
+[2025-12-09 21:07:45,160] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_overrepresented_sequences_plot.yaml
+[2025-12-09 21:07:45,160] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed_top_overrepresented_sequences_table.yaml
+[2025-12-09 21:07:45,161] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_trimmed-status-check-heatmap.yaml
+[2025-12-09 21:07:45,161] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_sequence_counts_plot.yaml
+[2025-12-09 21:07:45,172] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_per_base_sequence_quality_plot.yaml
+[2025-12-09 21:07:45,179] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_per_sequence_quality_scores_plot.yaml
+[2025-12-09 21:07:45,198] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_per_sequence_gc_content_plot_Percentages.yaml
+[2025-12-09 21:07:45,217] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_per_sequence_gc_content_plot_Counts.yaml
+[2025-12-09 21:07:45,227] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_per_base_n_content_plot.yaml
+[2025-12-09 21:07:45,231] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_sequence_duplication_levels_plot.yaml
+[2025-12-09 21:07:45,231] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_overrepresented_sequences_plot.yaml
+[2025-12-09 21:07:45,232] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_top_overrepresented_sequences_table.yaml
+[2025-12-09 21:07:45,237] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw_adapter_content_plot.yaml
+[2025-12-09 21:07:45,237] multiqc.report                                     [DEBUG  ]  Wrote data file fqc_raw-status-check-heatmap.yaml
+[2025-12-09 21:07:45,238] multiqc.core.write_results                         [DEBUG  ]  Moving data file from '/var/folders/px/z57y5_jd2rx3b3js6s9629dh0000gn/T/tmp52sa1y6m/multiqc_data' to '/Users/ewels/GitHub/seqera/web/services/website/public/examples/rna-seq/multiqc_data'
+[2025-12-09 21:07:45,554] multiqc.core.write_results                         [INFO   ]  Data        : multiqc_data
+[2025-12-09 21:07:46,408] multiqc.core.write_results                         [DEBUG  ]  Compressing plot data
+[2025-12-09 21:07:46,559] multiqc.core.write_results                         [INFO   ]  Report      : multiqc_report.html

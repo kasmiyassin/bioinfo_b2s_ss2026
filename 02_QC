@@ -1,0 +1,25 @@
+
+# FastQC
+```bash
+fastqc --version
+
+fastqc -o ~/session02/fastqc/ ~/session01/database/*.fastq.gz
+fastqc -t 4 *.fastq.gz
+
+```
+
+#### Run the command
+
+# MultiQC
+
+```bash
+multiqc .
+
+
+multiqc data/
+multiqc data/ ../proj_one/analysis/ /tmp/results
+multiqc data/*_fastqc.zip
+multiqc data/sample_1*
+
+```
+
