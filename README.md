@@ -13,10 +13,10 @@ ToDo
 2.	L'installation de tous les logiciels nécessaires est requise :
 L'ensemble complet des fichiers logiques est accessible à l'adresse suivante : https://github.com/kasmiyassin/bioinfo_b2s_ss2026/tree/00_info/Software
 
-2-1. MobaXterm (si le système d'exploitation utilisé est Windows).
-2-2. WinSCP (si le système d'exploitation utilisé est Windows).
-2-3. FileZella pour tous les participants.
-2-4. IGV pour tous les participants.
+* MobaXterm (si le système d'exploitation utilisé est Windows).
+* WinSCP (si le système d'exploitation utilisé est Windows).
+* FileZella pour tous les participants.
+* IGV pour tous les participants.
 
 Les identifiants de connexion au HPC seront fournis par le formateur le jour de la session de formation.
 
