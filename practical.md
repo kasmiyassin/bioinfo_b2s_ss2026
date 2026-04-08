@@ -489,3 +489,175 @@ grep -v "^#" session02vc/vcf_files/mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass
 ```
 
 
+14. variant annotation
+ 
+```bash
+cd ~/session02vc/scripts/
+nano ~/session02vc/scripts/syn3_normal_syn3_tumor_pedigree_header.txt
+##PEDIGREE=<Derived=syn3_tumor,Original=syn3_normal>
+
+# Assign variables
+REPORTS_DIRECTORY=~/session02vc/reports/snpeff/
+SAMPLE_NAME=mutect2_syn3_normal_syn3_tumor
+REFERENCE_SEQUENCE_NAME=GRCh38.p7
+CSV_STATS=`echo -e "${REPORTS_DIRECTORY}annotation_${SAMPLE_NAME}_${REFERENCE_SEQUENCE_NAME}-effects-stats.csv"`
+HTML_REPORT=`echo -e "${REPORTS_DIRECTORY}annotation_${SAMPLE_NAME}_${REFERENCE_SEQUENCE_NAME}-effects-stats.html"`
+REFERENCE_DATABASE=hg19
+#REFERENCE_DATABASE=GRCh38.p7.RefSeq
+DATADIR=/courses/master_b2s/references/GRCh/hg38/snpeff/data/
+FILTERED_VCF_FILE=~/session02vc/vcf_files/mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.vcf
+PEDIGREE_HEADER_FILE=~/session02vc/scripts/syn3_normal_syn3_tumor_pedigree_header.txt
+FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER=${FILTERED_VCF_FILE%.vcf}.pedigree_header.vcf
+SNPEFF_ANNOTATED_VCF_FILE=${FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER%.vcf}.snpeff.vcf
+DBSNP_DATABASE=/courses/master_b2s/references/GRCh/hg38/dbsnp_chr5.vcf.gz
+DBSNP_ANNOTATED_VCF_FILE=${SNPEFF_ANNOTATED_VCF_FILE%.vcf}.dbSNP.vcf
+
+# Create reports directory
+mkdir -p $REPORTS_DIRECTORY
+
+# Append Header
+bcftools annotate \
+  --header-lines $PEDIGREE_HEADER_FILE \
+  $FILTERED_VCF_FILE \
+  > $FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER
+
+# Run SnpEff
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/snpEff.jar databases | less
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar -Xmx4g /courses/master_b2s/software/snpEff/snpEff.jar  eff \
+  -dataDir $DATADIR \
+  -cancer \
+  -noLog \
+  -csvStats $CSV_STATS \
+  -s $HTML_REPORT \
+  $REFERENCE_DATABASE \
+  $FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER \
+  > $SNPEFF_ANNOTATED_VCF_FILE
+
+# Use dbSNP VCF to annotate our VCF
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar annotate \
+  $DBSNP_DATABASE \
+  -tabix \
+  -noLog \
+  $SNPEFF_ANNOTATED_VCF_FILE \
+  > $DBSNP_ANNOTATED_VCF_FILE
+
+
+less  ~/session02vc/vcf_files/mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf 
+
+##SnpEffCmd="SnpEff  -cancer -csvStats /root/session02vc/reports/snpeff/annotation_mutect2_syn3_normal_syn3_tumor_GRCh38.p7-effects-stats.csv -s /ro>
+```
+
+## install database
+
+```bash
+
+curl -o GRCh38.p7.dbSNP.vcf.gz -L https://ftp.ncbi.nih.gov/snp/organisms/human_9606_b151_GRCh38p7/VCF/00-All.vcf.gz
+
+tabix GRCh38.p7.dbSNP.vcf.gz
+
+# Use dbSNP VCF to annotate our VCF
+java -jar $SNPEFF/SnpSift.jar annotate \
+  $DBSNP_DATABASE \
+  -tabix \
+  -noLog \
+  $SNPEFF_ANNOTATED_VCF_FILE \
+  > $DBSNP_ANNOTATED_VCF_FILE
+```
+
+
+
+15. Prioritizing Variants
+
+```bash
+
+cd ~/session02vc/vcf_files/
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( CHROM = '5' )" \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
+## in our data we need to use chr5 instead 5
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  "( CHROM = 'chr1' ) | ( CHROM = 'chr5' )" \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
+
+
+# Alternatively, we could be interested in variants on Chromosome 1 between positions 1000000 and 2000000. This command would look like:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( CHROM = '1' ) & ( POS > 1000000 ) & ( POS < 2000000 )" \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf   | less
+
+
+# If you are interested in all of the variants corresponding to a single gene of interest, you can filter by the gene name in this case CPSF3L:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].GENE = 'SDHAP3' )" mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf | less
+
+
+
+# You can also filter on the transcript ID which in this case is the NCBI accession number.
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].TRID = 'XM_017001557.1' )" mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf | less
+
+
+# If you want to filter your output by the effects the variants have on the annotated gene models, the syntax for this is quite similar to the example for genes:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].EFFECT has 'missense_variant' )" \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
+
+```
+
+
+```bash
+
+#Let's go ahead and select out all of our HIGH impact muations:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].IMPACT has 'HIGH' )" \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
+
+
+#Let's go ahead and redirect the output of these "high-impact" mutations to a new VCF file:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].IMPACT has 'HIGH' )"  \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  > mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.high_impact.vcf 
+
+
+
+# A useful tool within the SnpSift toolkit is the perl script named vcfEffOnePerLine.pl. This script allows the user to separate each effect onto its own line instead of having them lumped into a single line. In order to utilize this script we need to pipe the output of our filter command into $SNPEFF/scripts/vcfEffOnePerLine.pl. We can use it on our previous example to demonstrate:
+
+/courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
+  -noLog \
+  "( ANN[*].IMPACT has 'HIGH' )"  \
+  mutect2_syn3_normal_syn3_tumor_GRCh38.p7-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf | \
+  /courses/master_b2s/software/snpEff/scripts/vcfEffOnePerLine.pl | less
+
+```
+
+```bash
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001265592.1|protein_coding|13/22|c.1428_1429insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp477fs|1493/4794|1428/3258|476/1085||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001265593.1|protein_coding|12/21|c.1398_1399insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp467fs|1424/4725|1398/3228|466/1075||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001042665.1|protein_coding|12/21|c.1191_1192insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp398fs|1397/4698|1191/3021|397/1006||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001042664.1|protein_coding|12/21|c.1191_1192insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp398fs|1414/4715|1191/3021|397/1006||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001265594.1|protein_coding|12/22|c.1191_1192insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp398fs|1428/4529|1191/2793|397/930||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_020631.4|protein_coding|12/21|c.1191_1192insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp398fs|1343/4644|1191/3021|397/1006||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_001042663.1|protein_coding|13/22|c.1359_1360insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp454fs|1460/4761|1359/3189|453/1062||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+1	6471577	.	A	ACTCACGTGCAAGCATCACACCGGCACGC	.	PASS	AS_FilterStatus=SITE;AS_SB_TABLE=49,52|6,4;ClippingRankSum=-1.498;DP=119;ECNT=1;FS=2.779;GERMQ=93;MBQ=32,32;MFRL=341,338;MMQ=60,60;MPOS=20;MQ=60;MQ0=0;MQRankSum=0;NALOD=1.82;NLOD=19.17;POPAF=6;ReadPosRankSum=-1.659;TLOD=33.37;LOF=(PLEKHG5|PLEKHG5|8|1.00);NMD=(PLEKHG5|PLEKHG5|8|1.00);ANN=ACTCACGTGCAAGCATCACACCGGCACGC|frameshift_variant&stop_gained|HIGH|PLEKHG5|PLEKHG5|transcript|NM_198681.3|protein_coding|13/22|c.1422_1423insGCGTGCCGGTGTGATGCTTGCACGTGAG|p.Trp475fs|1972/5273|1422/3252|474/1083||	GT:AD:AF:DP:F1R2:F2R1:SB	0/0:63,0:0.015:63:37,0:25,0:33,30,0,0	0/1:38,10:0.216:48:19,5:17,4:16,22,6,4
+```
+
+
+
+
+
