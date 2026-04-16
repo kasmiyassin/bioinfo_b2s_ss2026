@@ -9,7 +9,7 @@ sudo groupadd master_b2s
 ## 2. create all users (x user) from txt file.
 
 ```bach
-sudo usradd master_b2s  ## for one
+sudo adduser master_b2s  ## for one
 ```
 
 **for multiple**
@@ -98,6 +98,7 @@ username password fullname group
 ```bash
 # Create the group
 sudo groupadd master_b2s
+sudo adduser yk01
 
 # Add your existing students to the group (repeat for each user)
 sudo usermod -aG master_b2s yk01
@@ -108,13 +109,12 @@ sudo usermod -aG master_b2s user01
 ## 4. Create the Directory Structure
 
 ```bash
-sudo chown root:root /courses
-sudo chmod 711 /courses
-
 # Change ownership to the shared group
 #sudo chgrp -R students /courses/software /courses/miniconda3
-mkdir -p /courses/{software,miniconda3}
+mkdir -p /courses/{software,miniconda3,HH,master_b2s}
 # Give them read and execute (traversal) rights
+sudo chown root:root /courses
+sudo chmod 711 /courses
 sudo chmod -R 755 /courses/software
 sudo chmod -R 755 /courses/miniconda3
 
@@ -163,13 +163,26 @@ sudo chmod 755 /courses/software/R_libs
 ```
 
 Tell R to use this folder globally:
+
+- install R and Rstudio 
+```bash
+apt update
+apt install build-essential -y
+
+```
 ```bash
 echo 'export R_LIBS_SITE="/courses/software/R_libs"' | sudo tee /etc/profile.d/course_r_libs.sh
 ```
+
 To install new package do
+
 ```r
+install.packages("ggplot2", lib="/courses/software/R_libs")
+
 install.packages("Seurat", lib="/courses/software/R_libs")
 ```
+
+install.packages(c("tidyverse", "Matrix", "RCurl", "scales", "cowplot", "patchwork", "devtools", "BiocManager", "hdf5r", "Seurat"), lib="/courses/software/R_libs")
 
 \ user01 Wr;R0"/ user 01 master_b2s
 user02	A!b@c#D$	user 02	master_b2s
@@ -177,16 +190,14 @@ where **Wr;R0"/** is password and **user 01** is full name
 
 
 
-
-install miniconda
-
+## 8. **Activate miniconda**
 ```bash
 conda init
 source ~/.bashrc
 
 ```
 
-student
+**Student**
 
 ```bash
 cd /courses/miniconda3/bin/
@@ -197,7 +208,9 @@ source ~/.bashrc
 
 
 
-# Create the environment with the tools we discussed
+## 9. Create the environment with the tools we discussed
+
+```bash
 conda create -p /courses/miniconda3/envs/b2s_20260504 
 
 conda activate /courses/miniconda3/envs/b2s_20260504
@@ -206,6 +219,34 @@ conda install -c bioconda -c conda-forge \
     fastqc multiqc fastp \
     bwa samtools bcftools \
     freebayes vcftools \
-    gatk4 openjdk -y
+    gatk4 openjdk picard snpeff -y
 
 sudo chmod -R 755 /courses/miniconda3
+
+```
+
+
+
+## 10. Software necessary
+
+- FASTQC
+- MultiQC
+- GATK
+- IGV
+- Qiime2
+- trimmomatic
+- 
+
+
+conda env create \
+  --name qiime2-amplicon-2026.1 \
+  --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2026.1/amplicon/released/qiime2-amplicon-ubuntu-latest-conda.yml
+
+conda env create \
+  --name qiime2-moshpit-2026.1 \
+  --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2026.1/moshpit/released/qiime2-moshpit-ubuntu-latest-conda.yml
+
+
+conda env create \
+  --name qiime2-pathogenome-2026.1 \
+  --file https://raw.githubusercontent.com/qiime2/distributions/refs/heads/dev/2026.1/pathogenome/released/qiime2-pathogenome-ubuntu-latest-conda.yml
