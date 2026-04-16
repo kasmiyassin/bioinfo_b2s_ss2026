@@ -100,7 +100,7 @@ username password fullname group
 sudo groupadd master_b2s
 
 # Add your existing students to the group (repeat for each user)
-sudo usermod -aG master_b2s ykasmi
+sudo usermod -aG master_b2s yk01
 sudo usermod -aG master_b2s user01
 
 ```
@@ -108,11 +108,24 @@ sudo usermod -aG master_b2s user01
 ## 4. Create the Directory Structure
 
 ```bash
+sudo chown root:root /courses
+sudo chmod 711 /courses
+
+# Change ownership to the shared group
+#sudo chgrp -R students /courses/software /courses/miniconda3
+mkdir -p /courses/{software,miniconda3}
+# Give them read and execute (traversal) rights
+sudo chmod -R 755 /courses/software
+sudo chmod -R 755 /courses/miniconda3
+
+```
+
+```bash
 # Create the base directory
-sudo mkdir -p /courses/master_b2s
+sudo mkdir -p /courses/master_b2s/{00_scripts,references,raw_data}
 
 # 1. Software directory
-sudo mkdir -p /courses/master_b2s/software/00_scripts
+sudo mkdir -p /courses/master_b2s/00_scripts/{s01_qc,s02_vc,s03_scrna,s04_microbiom}
 
 # 2. References directory
 sudo mkdir -p /courses/master_b2s/references/{GRCh,silva,clinvar}
@@ -120,8 +133,7 @@ sudo mkdir -p /courses/master_b2s/references/{GRCh,silva,clinvar}
 # 3. Raw Data directory
 sudo mkdir -p /courses/master_b2s/raw_data/{s01_qc,s02_vc,s03_scrna,s04_microbiom}
 
-# 4. Resources directory 
-sudo mkdir -p /courses/master_b2s/resources
+
 
 ```
 
@@ -136,7 +148,7 @@ sudo chown -R root:master_b2s /courses/master_b2s
 ```bash
 
 # Give full permissions (7) to Owner and Group, and Read/Execute (5) to Others
-sudo chmod -R 775 /courses/master_b2s
+sudo chmod -R 755 /courses/master_b2s
 
 # Apply the SGID bit to all directories inside the course folder
 sudo find /courses/master_b2s -type d -exec chmod g+s {} +
@@ -147,7 +159,6 @@ sudo find /courses/master_b2s -type d -exec chmod g+s {} +
 
 ```bash
 sudo mkdir -p /courses/software/R_libs
-sudo chown root:master_b2s /courses/software/R_libs
 sudo chmod 755 /courses/software/R_libs
 ```
 
@@ -163,3 +174,38 @@ install.packages("Seurat", lib="/courses/software/R_libs")
 \ user01 Wr;R0"/ user 01 master_b2s
 user02	A!b@c#D$	user 02	master_b2s
 where **Wr;R0"/** is password and **user 01** is full name
+
+
+
+
+install miniconda
+
+```bash
+conda init
+source ~/.bashrc
+
+```
+
+student
+
+```bash
+cd /courses/miniconda3/bin/
+./conda init
+source ~/.bashrc
+```
+
+
+
+
+# Create the environment with the tools we discussed
+conda create -p /courses/miniconda3/envs/b2s_20260504 
+
+conda activate /courses/miniconda3/envs/b2s_20260504
+
+conda install -c bioconda -c conda-forge \
+    fastqc multiqc fastp \
+    bwa samtools bcftools \
+    freebayes vcftools \
+    gatk4 openjdk -y
+
+sudo chmod -R 755 /courses/miniconda3
