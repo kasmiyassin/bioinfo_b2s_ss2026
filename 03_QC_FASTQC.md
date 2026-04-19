@@ -241,6 +241,7 @@ On the left side of the report, a summary of all the modules is given. **Don't t
 > **Please note that the evaluation of FASTQC metrics will remain the same for CUT&RUN data, however there are minor differences when working with ATAC-seq data. Where appropriate, we have added pull-down sections on ATAC-seq.**
 
 #### Per base sequence quality
+
 The **[Per base sequence quality](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/Help/3%20Analysis%20Modules/2%20Per%20Base%20Sequence%20Quality.html)** plot is an important analysis module in FastQC for ChIP-seq; it provides the distribution of quality scores across all bases at each position in the reads. This information helps determine whether there are any problems during the sequencing of your data. Generally, we might observe a decrease in quality towards the ends of the reads, but we shouldn't see any quality drops at the beginning or in the middle of the reads.
 
 <p align="center">
