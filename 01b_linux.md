@@ -28,7 +28,7 @@ Use `cd` to move between directories.
 cd                        # Go to your home directory (~)
 cd session01/mygit        # Go into session01/mygit (relative path)
 cd ..                     # Go one level up
-cd /root                  # Go to /root (absolute path)
+cd /home                  # Go to /root (absolute path)
 cd                     # Go  level
 ```
 
@@ -40,7 +40,7 @@ cd                     # Go  level
 
 ```bash
 ls                        # List files and folders in the current directory
-ls /courses/master_b2s/raw_data/s01_qc/*.fq                   # List only files ending in .fq (FASTQ files)
+ls /courses/master_b2s/raw_data/s01_qc/*.fastq.gz                   # List only files ending in .fq (FASTQ files)
 ls /courses/master_b2s/ -l                     # Long format: shows permissions, size, date
 ls -lh                    # Long format with human-readable file sizes
 ls -a                     # Show hidden files (starting with .)
@@ -89,6 +89,7 @@ This opens (or creates) the file `aboutme.md` in the `nano` editor.
 #### `tree` – Display directory structure
 
 ```bash
+cd
 tree
 tree -d
 ```
@@ -126,7 +127,7 @@ This copies `aboutme.md` from inside `mygit/` to the parent `session01/` folder.
 #### `mv` – Move (or rename) files and directories
 
 ```bash
-mv session01/mygit/  /root/mygit_old
+mv session01/mygit/  ~/mygit_old
 ```
 
 This moves (renames) the `mygit` directory to `/root/mygit_old`.  
@@ -213,7 +214,7 @@ git version 2.43.0
 If Git is not installed:
 
 ```bash
-sudo apt update && sudo apt install git -y
+# sudo apt update && sudo apt install git -y
 ```
 
 ---
@@ -223,8 +224,8 @@ sudo apt update && sudo apt install git -y
 First, navigate to (or create) your working directory:
 
 ```bash
-cd | mkdir -p /root/session01/git
-cd /root/session01/git
+cd | mkdir -p ~/session01/git
+cd ~/session01/git
 ```
 
 > The `|` here is used as shorthand to chain commands. Alternatively, run them on separate lines.
@@ -249,8 +250,8 @@ ls
 ```
 
 ```bash
-mkdir -p /root/session01/git
-cd /root/session01/git
+mkdir -p ~/session01/git
+cd ~/session01/git
 git --version
 git clone --branch session01_git https://github.com/kasmiyassin/bioinfo_b2s_ss2026.git
 cd bioinfo_b2s_ss2026

@@ -141,6 +141,9 @@ SRA stores files on Amazon S3 and ENA (European Nucleotide Archive) servers. SRA
 wget https://sra-pub-run-odp.s3.amazonaws.com/sra/SRR37888883/SRR37888883
 
 # Or use the ENA FTP mirror (often faster in Europe):
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR246/071/SRR24695071/SRR24695071_1.fastq.gz
+wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR246/071/SRR24695071/SRR24695071_2.fastq.gz
+
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/DR000/SRR37888883/SRR37888883_1.fastq.gz
 wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR134/DR000/SRR37888883/SRR37888883_2.fastq.gz
 ```
@@ -220,7 +223,7 @@ This opens a configuration menu. Press `X` to exit with default settings — thi
 cd ~/session01/database
 
 # Download PhiX
- /courses/master_b2s/software/sratoolkit/bin/prefetch SRR37888883
+ prefetch SRR37888883
 
 # Download 16S microbiome run
 prefetch SRR2726675
@@ -311,21 +314,21 @@ Each read in a FASTQ file takes exactly 4 lines. So the number of reads = total 
 ```bash
 # For a compressed file:
 zcat SRR13457500_1.fastq.gz | wc -l
-
+zcat SRR37888883_1.fastq.gz | wc -l | awk '{print $1 / 4}'
 # Divide the result by 4 to get the number of reads
 ```
 
 Or use a one-liner:
 
 ```bash
-echo $(( $(zcat SRR13457500_1.fastq.gz | wc -l) / 4 )) reads
+echo $(( $(zcat SRR37888883_1.fastq.gz | wc -l) / 4 )) reads
 ```
 
 ### Peek at the first few reads
 
 ```bash
 # View the first 12 lines (= first 3 reads)
-zcat SRR13457500_1.fastq.gz | head -12
+zcat SRR37888883_1.fastq.gz | head -12
 ```
 
 Example output:
@@ -348,7 +351,7 @@ FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
 ### Check read length distribution
 
 ```bash
-zcat SRR2726675_1.fastq.gz | awk 'NR%4==2 {print length($0)}' | sort | uniq -c
+zcat SRR37888883_1.fastq.gz | awk 'NR%4==2 {print length($0)}' | sort | uniq -c
 ```
 
 This prints how many reads have each length — useful for spotting truncated reads or adapter contamination.
@@ -356,8 +359,8 @@ This prints how many reads have each length — useful for spotting truncated re
 ### Confirm paired-end files have the same number of reads
 
 ```bash
-echo "R1: $(( $(zcat SRR2726675_1.fastq.gz | wc -l) / 4 )) reads"
-echo "R2: $(( $(zcat SRR2726675_2.fastq.gz | wc -l) / 4 )) reads"
+echo "R1: $(( $(zcat SRR37888883_1.fastq.gz | wc -l) / 4 )) reads"
+echo "R2: $(( $(zcat SRR37888883_2.fastq.gz | wc -l) / 4 )) reads"
 ```
 
 Both numbers must be identical. If they differ, the file may be corrupted.
