@@ -24,7 +24,7 @@ mkdir -p ./reports/fastqc/
 
 # fastqc
 fastqc -o ./reports/fastqc/ \
-        --threads 10 \
+        --threads 1 \
         /courses/master_b2s/raw_data/s02_vc/cancer/*.gz
 
 # see file
@@ -38,7 +38,7 @@ now open WinSCP and download and open html in your browser
 multiqc -v
 ## create working direcotr
 mkdir -p ./reports/multiqc_step01/
-cd ./reports/multiqc_step01/
+# cd ./reports/multiqc_step01/
 # run analyse
 multiqc ./reports/fastqc/ -o ./reports/multiqc_step01/
 
@@ -95,12 +95,12 @@ ls -l ./reports/fastqc/
 #MultiQC
 cd 
 cd session02vc
-cd ./reports/multiqc_step01/
+mkdir ./reports/multiqc_step02/
 # run analyse
-multiqc ./reports/fastqc/ -o ./reports/multiqc_step01/ -t 10
+multiqc ./reports/fastqc/ -o ./reports/multiqc_step02/ -t 10
 
 # see file
-ls -l ./reports/multiqc_step01/
+ls -l ./reports/multiqc_step02/
 ```
 
 
@@ -141,7 +141,8 @@ multiqc . -o multiqc/
 6. index reference genome
 
 ```bash
-mkdir /courses/master_b2s/references/GRCh/hg19#
+mkdir /courses/master_b2s/references/GRCh/hg19
+cd /courses/master_b2s/references/GRCh/hg19
 bwa index hg19.chr5_12_17.fa.gz
 
 ```
@@ -155,7 +156,7 @@ LEFT_READS=/courses/master_b2s/raw_data/s02_vc/cancer/normal_r1.fastq.gz
 RIGHT_READS=/courses/master_b2s/raw_data/s02_vc/cancer/normal_r2.fastq.gz
 SAMPLE=`basename $LEFT_READS _r1.fastq.gz`
 #SAMPLE=normal
-SAM_FILE=./session02vc/alignments/${SAMPLE}_hg19.sam
+SAM_FILE=~/session02vc/alignments/${SAMPLE}_hg19.sam
 
 # Align reads with bwa
 bwa mem \
@@ -178,12 +179,12 @@ LEFT_READS=/courses/master_b2s/raw_data/s02_vc/cancer/tumor_r1.fastq.gz
 RIGHT_READS=/courses/master_b2s/raw_data/s02_vc/cancer/tumor_r2.fastq.gz
 #SAMPLE=tumor
 SAMPLE=`basename $LEFT_READS _r1.fastq.gz`
-SAM_FILE=./session02vc/alignments/${SAMPLE}_hg19.sam
+SAM_FILE=~/session02vc/alignments/${SAMPLE}_hg19.sam
 
 # Align reads with bwa
 bwa mem \
     -M \
-    -t 10 \
+    -t 1 \
     -R "@RG\tID:$SAMPLE\tPL:illumina\tPU:$SAMPLE\tSM:$SAMPLE" \
     $REFERENCE_SEQUENCE \
     $LEFT_READS \
@@ -293,7 +294,7 @@ picard SortSam \
 if for some reason you could not do this work. You can copie the files
 
 ```bash
- cp /courses/master_b2s/session02vc/alignments/*_hg19.coordinate_sorted.ba? session2vc/alignments/
+ cp /courses/master_b2s/session02vc/alignments/*_hg19.coordinate_sorted.bam session2vc/alignments/
 
 ```
 
@@ -348,13 +349,13 @@ PLACEHOLDER FOR COMMAND
 REPORTS_DIRECTORY=~/session02vc/reports/
 NORMAL_SAMPLE_NAME=normal
 TUMOR_SAMPLE_NAME=tumor
-REFERENCE=GRCh37.p13
+REFERENCE=hg19
 NORMAL_PICARD_METRICS=${REPORTS_DIRECTORY}picard/${NORMAL_SAMPLE_NAME}/${NORMAL_SAMPLE_NAME}_${REFERENCE}.CollectAlignmentSummaryMetrics.txt
 TUMOR_PICARD_METRICS=${REPORTS_DIRECTORY}picard/${TUMOR_SAMPLE_NAME}/${TUMOR_SAMPLE_NAME}_${REFERENCE}.CollectAlignmentSummaryMetrics.txt
-NORMAL_FASTQC_1=${REPORTS_DIRECTORY}fastqc/${NORMAL_SAMPLE_NAME}_1_fastqc.zip
-NORMAL_FASTQC_2=${REPORTS_DIRECTORY}fastqc/${NORMAL_SAMPLE_NAME}_2_fastqc.zip
-TUMOR_FASTQC_1=${REPORTS_DIRECTORY}fastqc/${TUMOR_SAMPLE_NAME}_1_fastqc.zip
-TUMOR_FASTQC_2=${REPORTS_DIRECTORY}fastqc/${TUMOR_SAMPLE_NAME}_2_fastqc.zip
+NORMAL_FASTQC_1=${REPORTS_DIRECTORY}fastqc/${NORMAL_SAMPLE_NAME}_r1_fastqc.zip
+NORMAL_FASTQC_2=${REPORTS_DIRECTORY}fastqc/${NORMAL_SAMPLE_NAME}_r2_fastqc.zip
+TUMOR_FASTQC_1=${REPORTS_DIRECTORY}fastqc/${TUMOR_SAMPLE_NAME}_r1_fastqc.zip
+TUMOR_FASTQC_2=${REPORTS_DIRECTORY}fastqc/${TUMOR_SAMPLE_NAME}_r2_fastqc.zip
 OUTPUT_DIRECTORY=${REPORTS_DIRECTORY}/multiqc/
 
 # Create directory for output
@@ -432,7 +433,7 @@ NORMAL_BAM_FILE=~/session02vc/alignments/${NORMAL_SAMPLE_NAME}_hg19.coordinate_s
 TUMOR_SAMPLE_NAME=tumor
 TUMOR_BAM_FILE=~/session02vc/alignments/${TUMOR_SAMPLE_NAME}_hg19.coordinate_sorted.bam
 
-VCF_OUTPUT_FILE=~/session02vc/vcf_files/mutect2_somatic_turbo.vcf1
+VCF_OUTPUT_FILE=~/session02vc/vcf_files/mutect2_somatic_turbo.vcf
 
 gatk Mutect2 \
   -R $REFERENCE_SEQUENCE \
@@ -458,7 +459,7 @@ gatk Mutect2 \
 # Assign variables
 REFERENCE_SEQUENCE=/courses/master_b2s/references/GRCh/hg19/hg19.chr5_12_17.fa
 RAW_VCF_FILE=~/session02vc/vcf_files/mutect2_normal_tumor_hg19-raw.vcf
-LCR_FILE=/courses/master_b2s/references/GRCh/hg19/LCR-hs38_with_chr.bed
+LCR_FILE=/courses/master_b2s/references/GRCh/hg19/LCR-hs37_with_chr.bed
 MUTECT_FILTERED_VCF=${RAW_VCF_FILE%raw.vcf}filt.vcf
 PASSING_FILTER_VCF=${RAW_VCF_FILE%raw.vcf}pass-filt.vcf
 LCR_FILTERED_VCF=${RAW_VCF_FILE%raw.vcf}pass-filt-LCR.vcf
@@ -485,9 +486,9 @@ gatk FilterMutectCalls \
 
 ###########
 
-less session02vc/vcf_files/mutect2_normal_tumor_hg19-pass-filt-LCR.vcf
+less ~/session02vc/vcf_files/mutect2_normal_tumor_hg19-pass-filt-LCR.vcf
 
-grep -v "^#" session02vc/vcf_files/mutect2_normal_tumor_hg19-pass-filt-LCR.vcf | wc -l
+grep -v "^#" ~/session02vc/vcf_files/mutect2_normal_tumor_hg19-pass-filt-LCR.vcf | wc -l
 
 ```
 
@@ -502,7 +503,7 @@ nano ~/session02vc/scripts/normal_tumor_pedigree_header.txt
 # Assign variables
 REPORTS_DIRECTORY=~/session02vc/reports/snpeff/
 SAMPLE_NAME=mutect2_normal_tumor
-REFERENCE_SEQUENCE_NAME=GRCh37.p13
+REFERENCE_SEQUENCE_NAME=hg19
 CSV_STATS=`echo -e "${REPORTS_DIRECTORY}annotation_${SAMPLE_NAME}_${REFERENCE_SEQUENCE_NAME}-effects-stats.csv"`
 HTML_REPORT=`echo -e "${REPORTS_DIRECTORY}annotation_${SAMPLE_NAME}_${REFERENCE_SEQUENCE_NAME}-effects-stats.html"`
 #REFERENCE_DATABASE=hg19
@@ -512,7 +513,7 @@ FILTERED_VCF_FILE=~/session02vc/vcf_files/mutect2_normal_tumor_hg19-pass-filt-LC
 PEDIGREE_HEADER_FILE=~/session02vc/scripts/normal_tumor_pedigree_header.txt
 FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER=${FILTERED_VCF_FILE%.vcf}.pedigree_header.vcf
 SNPEFF_ANNOTATED_VCF_FILE=${FILTERED_VCF_FILE_WITH_PEDIGREE_HEADER%.vcf}.snpeff.vcf
-DBSNP_DATABASE=/courses/master_b2s/references/GRCh/hg19/dbsnp_chr5.vcf.gz
+DBSNP_DATABASE=/courses/master_b2s/references/GRCh/hg19/GRCh37.p13.dbSNP.vcf.gz
 DBSNP_ANNOTATED_VCF_FILE=${SNPEFF_ANNOTATED_VCF_FILE%.vcf}.dbSNP.vcf
 
 # Create reports directory
@@ -580,7 +581,7 @@ cd ~/session02vc/vcf_files/
   -noLog \
   "( CHROM = '5' )" \
   mutect2_normal_tumor_hg19-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
-## in our data we need to use chr5 instead 5
+# in our data we need to use chr5 instead 5
 
 /courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
   "( CHROM = 'chr1' ) | ( CHROM = 'chr5' )" \
@@ -640,7 +641,7 @@ cd ~/session02vc/vcf_files/
 
 
 # A useful tool within the SnpSift toolkit is the perl script named vcfEffOnePerLine.pl. This script allows the user to separate each effect onto its own line instead of having them lumped into a single line. In order to utilize this script we need to pipe the output of our filter command into $SNPEFF/scripts/vcfEffOnePerLine.pl. We can use it on our previous example to demonstrate:
-
+# one time chmod +x /courses/software/vcfInfoOnePerLine.pl
 /courses/master_b2s/software/miniconda3/envs/snpeff-env/bin/java -jar /courses/master_b2s/software/snpEff/SnpSift.jar filter \
   -noLog \
   "( ANN[*].IMPACT has 'HIGH' )"  \
@@ -662,5 +663,32 @@ cd ~/session02vc/vcf_files/
 
 
 
+## to determine where is missing position
+```bash
+SnpSift filter \
+  -noLog \
+  "( ANN[*].EFFECT has 'missense_variant' )"  \
+  mutect2_normal_tumor_hg19-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | \
+  /courses/software/vcfInfoOnePerLine.pl | \
+  SnpSift extractFields \
+  - \
+  "CHROM" "POS" "ANN[*].GENE" "ANN[*].TRID" "EFF[*].HGVS_P" "ANN[*].HGVS_C" "ANN[*].EFFECT" | less
+
+  ```
+    mutect2_normal_tumor_hg19-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | less
 
 
+
+## to determine 
+```bash
+SnpSift filter \
+  -noLog \
+  "( ANN[*].EFFECT has 'missense_variant' )"  \
+  mutect2_normal_tumor_hg19-pass-filt-LCR.pedigree_header.snpeff.dbSNP.vcf  | \
+  /courses/software/vcfInfoOnePerLine.pl | \
+  SnpSift extractFields \
+  - \
+  "CHROM" "POS" "ANN[*].GENE" "ANN[*].TRID" "EFF[*].HGVS_P" "ANN[*].HGVS_C" "ANN[*].EFFECT" | \
+  grep 'missense_variant' | less
+
+```
