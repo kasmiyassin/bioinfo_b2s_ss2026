@@ -1,0 +1,93 @@
+
+## 1. install R 
+
+```bash
+# update indices
+sudo apt update -qq
+
+sudo apt update
+sudo apt install build-essential -y
+
+# install two helper packages we need
+sudo apt install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: E298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the repo from CRAN -- lsb_release adjusts to 'noble' or 'jammy' or ... as needed
+sudo add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+# install R itself
+sudo apt install --no-install-recommends r-base
+
+# change lib to course
+echo 'export R_LIBS_SITE="/courses/software/R_libs"' | sudo tee /etc/profile.d/course_r_libs.sh
+
+```
+
+## 2. install Rstudio
+
+```bash
+sudo apt-get install gdebi-core
+
+wget https://download2.rstudio.org/server/jammy/amd64/rstudio-server-2026.01.2-418-amd64.deb
+
+sudo gdebi rstudio-server-2026.01.2-418-amd64.deb
+```
+## 3. install packages
+
+
+
+install new package do
+
+```r
+# install one by one not all together
+#(1) Install the 10 packages listed below from CRAN using the install.packages() function.
+install.packages("ggplot2",dependencies = TRUE, lib="/courses/software/R_libs")
+
+install.packages("tidyverse",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("Matrix",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("RCurl",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("scales",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("cowplot",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("BiocManager",dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("Seurat",dependencies = TRUE, lib="/courses/software/R_libs")
+
+
+BiocManager::install("multtest", lib = "/courses/software/R_libs")
+install.packages("metap", dependencies = TRUE, lib = "/courses/software/R_libs")
+install.packages("reshape2", dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("plyr", dependencies = TRUE, lib="/courses/software/R_libs")
+install.packages("devtools", dependencies = TRUE, lib="/courses/software/R_libs")
+
+# (2) Install the 4 packages listed below from Bioconductor using the the BiocManager::install() function.
+
+library(BiocManager)
+BiocManager::install("AnnotationHub",dependencies = TRUE, lib="/courses/software/R_libs")
+BiocManager::install("ensembldb",dependencies = TRUE, lib="/courses/software/R_libs")
+BiocManager::install("multtest",dependencies = TRUE, lib="/courses/software/R_libs")
+BiocManager::install("glmGamPoi",dependencies = TRUE, lib="/courses/software/R_libs")
+
+# (3) Install Presto from GitHub using the devtools::install_github() function:
+library(devtools)
+devtools::install_github("immunogenomics/presto")
+
+# (4) Finally, please check that all the packages were installed successfully by loading them one at a time using the library() function.
+
+library(Seurat)
+library(tidyverse)
+library(Matrix)
+library(RCurl)
+library(scales)
+library(cowplot)
+library(BiocManager)
+library(metap)
+library(reshape2)
+library(plyr)
+library(devtools)
+library(AnnotationHub)
+library(ensembldb)
+library(multtest)
+library(glmGamPoi)
+library(presto)
+
+```
