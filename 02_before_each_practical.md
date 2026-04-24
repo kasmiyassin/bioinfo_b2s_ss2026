@@ -17,3 +17,19 @@ tmux attach
 ```
 
 to out **Ctrl+b** then **d** alone
+
+##  **Activate miniconda**
+```bash
+conda init
+source ~/.bashrc
+
+```
+
+**Student**
+
+```bash
+cd /courses/miniconda3/bin/
+./conda init
+source ~/.bashrc
+```
+
