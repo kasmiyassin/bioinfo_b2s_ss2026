@@ -1,7 +1,9 @@
 # Session 02 – Searching and Downloading Sequencing Data from NCBI SRA
 
 > **Course:** Bioinformatics B2S SS2026
+> 
 > **Topics:** NCBI SRA database · SRA Explorer · SRA Toolkit · wget · FASTQ format
+> 
 > **Prerequisites:** Session 01 (Linux basics, connecting to the server)
 
 ---
