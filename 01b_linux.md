@@ -8,7 +8,7 @@ tmux
 
 #### 01. `mkdir` – make directory create Directory
 
-in chatgpt write **"comment cree un dossier (directory) dans ubunutu 24.04 par command"**
+in chatgpt write **"Comment créer un dossier (directory) dans Ubuntu 24.04 via la ligne de commande ?"**
 
 
 ```bash
