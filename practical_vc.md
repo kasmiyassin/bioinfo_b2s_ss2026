@@ -253,7 +253,7 @@ We do for tumoral
 ```bash
 # Assign file paths to variables
 SAMPLE_NAME=tumor
-SAM_FILE=/courses/master_b2s/session02vc/alignments/${SAMPLE_NAME}_hg19.sam
+SAM_FILE=~/session02vc/alignments/${SAMPLE_NAME}_hg19.sam
 REPORTS_DIRECTORY=~/session02vc/reports/picard/${SAMPLE_NAME}/
 QUERY_SORTED_BAM_FILE=`echo ${SAM_FILE%sam}query_sorted.bam`
 REMOVE_DUPLICATES_BAM_FILE=`echo ${SAM_FILE%sam}remove_duplicates.bam`
