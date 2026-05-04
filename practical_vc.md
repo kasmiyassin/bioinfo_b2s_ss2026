@@ -194,12 +194,11 @@ bwa mem \
 
 8. Alignment file processing
 
-
 ```bash
 
 # Assign file paths to variables
 SAMPLE_NAME=normal
-SAM_FILE=/courses/master_b2s/session02vc/alignments/${SAMPLE_NAME}_hg19.sam
+SAM_FILE=~/session02vc/alignments/${SAMPLE_NAME}_hg19.sam
 REPORTS_DIRECTORY=~/session02vc/reports/picard/${SAMPLE_NAME}/
 QUERY_SORTED_BAM_FILE=`echo ${SAM_FILE%sam}query_sorted.bam`
 REMOVE_DUPLICATES_BAM_FILE=`echo ${SAM_FILE%sam}remove_duplicates.bam`
@@ -247,6 +246,7 @@ we can add also read group
    --RGPU $READ_GROUP_PLATFORM_UNIT \
    --RGSM $READ_GROUP_SAMPLE
 ```
+
 
 We do for tumoral
 
