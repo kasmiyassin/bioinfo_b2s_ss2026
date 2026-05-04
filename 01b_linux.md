@@ -2,6 +2,8 @@
 
 ```bash
 tmux new -A -s session1
+
+tmux attach -t session1
 ```
 
 # Exc 01
