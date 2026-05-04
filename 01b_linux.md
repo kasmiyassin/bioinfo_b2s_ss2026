@@ -1,7 +1,7 @@
 ## Before start wirte the following command
 
 ```bash
-tmux
+tmux new -A -s session1
 ```
 
 # Exc 01
