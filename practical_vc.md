@@ -194,6 +194,7 @@ bwa mem \
 
 8. Alignment file processing
 
+
 ```bash
 
 # Assign file paths to variables
@@ -246,7 +247,6 @@ we can add also read group
    --RGPU $READ_GROUP_PLATFORM_UNIT \
    --RGSM $READ_GROUP_SAMPLE
 ```
-
 
 We do for tumoral
 
