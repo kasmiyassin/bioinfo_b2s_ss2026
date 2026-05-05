@@ -2,7 +2,8 @@
 ## Importing data to Rstudio ----
 
 # Add your custom directory to the list of places R looks for gems
-.libPaths(c("/courses/software/R_libs", .libPaths()))
+.libPaths(c("/courses/software/R/lib/4.4/", .libPaths()))
+.libPaths()
 
 # Now you can load them normally
 
